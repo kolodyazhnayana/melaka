@@ -27,6 +27,7 @@ $color_button: #313638;
     font-weight: 600;
 }
 
+
 body {
     background-color: $color_bck;
     font-family: Poppins,Helvetica,Arial,sans-serif;
@@ -126,19 +127,43 @@ body {
 }
 
 .bunner {
-    background: url(images/background.png) no-repeat;
-    background-size: cover;
     width: 100%;
-    height: 50vh;
     position: relative;
     margin-top: 40px;
 
-    &__heading {
-        padding: 25px 10px 10px 25px;
+
+    &__image {
+        width: 100%;
+        height: 450px;
+        transition: 1s;
+
+        &_small {
+            height: 450px;
+            width: 100%;
+        }
+    }
+
+    &__container {
+        @include flex();
+        justify-content: start;
 
         &:hover {
-            color: $color_red;
+            .bunner__heading {
+                color: $color_red;
+            }
+
+            .bunner__image {
+                transform: scale(1.01);
+            }
         }
+
+        &-image_small {
+            width: 43%;
+        }
+    }
+
+    &__heading {
+        padding: 25px 10px 10px 25px;
     }
 
     &__text {
@@ -149,6 +174,7 @@ body {
         }
     }
 }
+
 
 .heading-container {
     width: 270px;
@@ -201,13 +227,25 @@ body {
     width: 100%;
 }
 
+
 .card {
     width: 100%;
     background-color: $color_white;
     margin-bottom: 40px;
 
+    &:hover {
+        .card__heading {
+            color: $color_red;
+        }
+
+        .card__image {
+            transform: scale(1.01);
+        }
+    }
+
     &__image {
         width: 100%;
+        transition: 1s;
     }
 
     &-container {
@@ -219,10 +257,6 @@ body {
 
     &__heading {
         padding: 25px 10px 10px 25px;
-
-        &:hover {
-            color: $color_red;
-        }
     }
 
     &__text {
@@ -272,6 +306,12 @@ body {
         height: 130px;
         margin: 30px 0;
         border-radius: 5px;
+
+        &:hover {
+            .article__heading {
+                color: $color_red;
+            }
+        }
     }
 
     &__image {
@@ -299,6 +339,55 @@ body {
 .container-work {
     width: 50%;
     margin-right: 20px;
+}
+
+.container-arrow {
+    position: relative;
+}
+
+.arrow {
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 8px;
+    bottom: 4px;
+    cursor: pointer;
+
+        &::before, &::after {
+            content: '';
+            background-color: $color_dark;
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            left: 0;
+        }
+
+        &::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
+
+        &::after {
+            bottom: 0;
+            transform: rotate(-45deg);
+        }
+
+    &_work {
+        left: 50px;
+    }
+
+    &_lifestyle {
+        left: 80px;
+    }
+
+    &_tags {
+        left: 45px;
+    }
+
+    &_authors {
+        left: 75px;
+    }
+    
 }
 
 .container-lifestyle {
@@ -385,10 +474,18 @@ body {
         @include flex();
         justify-content: start;
 
+        cursor: pointer;
+
         width: 27%;
         background-color: $color_white;
         padding: 20px;
         border-radius: 7px;
+
+        &:hover {
+            .authors__heading {
+                color: $color_red;
+            }
+        }
     }
 
     &__card-container {
@@ -521,6 +618,15 @@ body {
         padding: 20px 0;
     }
 
+    .bunner {
+
+        &__container-image_small {
+            width: 55%;
+        }
+        
+    }
+
+
     .card {
 
         &__heading {
@@ -602,10 +708,72 @@ body {
         }
     }
 
+    .bunner {
+
+        &__image {
+            height: 330px;
+
+            &_small {
+                height: 330px;
+                width: 100%;
+            }
+        }
+
+        &__container-image_small {
+            width: 70%;
+        }
+        
+    }
+
     .wrapper {
         grid-template-rows: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
         grid-gap: 2vw;
+
+        grid-template-areas: "a b"
+                             "c d"
+                             "e f"
+                             "g h"
+                             "i i";
+    }
+
+    .card {
+        
+        &-1 {
+            grid-area: a;
+        }
+
+        &-2 {
+            grid-area: b;
+        }
+
+        &-3 {
+            grid-area: c;
+        }
+
+        &-4 {
+            grid-area: d;
+        }
+
+        &-5 {
+            grid-area: e;
+        }
+
+        &-6 {
+            grid-area: f;
+        }
+
+        &-7 {
+            grid-area: g;
+        }
+
+        &-8 {
+            grid-area: h;
+        }
+
+        &-9 {
+            grid-area: i;
+        }
     }
 
     .article {
@@ -639,10 +807,27 @@ body {
             grid-template-rows: 1fr 1fr;
             grid-template-columns: 1fr 1fr;
             grid-gap: 4vw;
+
+            grid-template-areas: "a b"
+                                 "c c";
         }
 
         &__card {
             width: 89%;
+
+            &-1 {
+                grid-area: a;
+            }
+
+            &-2 {
+                grid-area: b;
+            }
+
+            &-3 {
+                grid-area: c;
+                width: 95%;
+            }
+
         }
     }
 
@@ -679,12 +864,97 @@ body {
         width: 100%;
         top: 100%;
         right: 0;
+        height: 110px;
     }
+
+    .bunner {
+        
+        &__image {
+            height: 300px;
+
+            &_small {
+                display: none;
+            }
+        }
+
+        &__container-image {
+            width: 100%;
+
+            &_small {
+                width: 0;
+            }
+        }
+
+        &__heading {
+            font-size: 20px;
+        }
+    }
+
+    .card {
+    
+        &-container {
+        height: 110px;
+        }
+
+        &__heading {
+            font-size: 20px;
+        }
+    }
+
 
     .wrapper {
         grid-template-rows: 1fr;
         grid-template-columns: 1fr;
         grid-gap: 2vw;
+
+        grid-template-areas: "a"
+                             "b"
+                             "c"
+                             "d"
+                             "e"
+                             "f"
+                             "g"
+                             "h"
+                             "i";
+    }
+
+    .card {
+        
+        &-1 {
+            grid-area: a;
+        }
+
+        &-2 {
+            grid-area: b;
+        }
+
+        &-3 {
+            grid-area: c;
+        }
+
+        &-4 {
+            grid-area: d;
+        }
+
+        &-5 {
+            grid-area: e;
+        }
+
+        &-6 {
+            grid-area: f;
+        }
+
+        &-7 {
+            grid-area: g;
+        }
+
+        &-8 {
+            grid-area: h;
+        }
+
+        &-9 {
+            grid-area: i;
+        }
     }
 
     .main {
@@ -714,6 +984,26 @@ body {
             grid-template-rows: 1gr;
             grid-template-columns: 1fr;
             grid-gap: 7vw;
+
+            grid-template-areas: "a"
+                                 "b"
+                                 "c";
+        }
+
+        &__card-1 {
+            grid-area: a;
+        }
+
+        &__card-2 {
+            grid-area: b;
+        }
+
+        &__card-3 {
+            grid-area: c;
+        }
+
+        &__card {
+            width: 89%;
         }
     }
 
@@ -777,6 +1067,7 @@ body {
             grid-gap: 7vw;
         }
     }
+
 }
 
 
