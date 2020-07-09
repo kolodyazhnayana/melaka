@@ -85,6 +85,10 @@ body {
     &_burger {
         display: none;
     }
+
+    &_mobile {
+        display: none;
+    }
 }
 
 .logo {
@@ -669,6 +673,25 @@ body {
     .menu {
         display: none;
 
+        &__list {
+            display: block;
+            padding: 20px 0 0 10px;
+        }
+
+        &_mobile {
+            display: block;
+            width: 60%;
+            background-color: $color_white;
+            height: 100vh;
+            position: fixed;
+            z-index: 1;
+            overflow: hidden;
+            right: 0;
+            top: 0;
+            transition: 1s;
+            transform: translate(100%);
+        }
+
         &_burger {
             display: block;
             position: absolute;
@@ -848,6 +871,42 @@ body {
             padding-top: 30px;
         }
     }
+
+    .content {
+        transition: 1s;
+        position: relative;
+    }
+
+    // JS
+
+    .menu_active {
+        transform: translate(0%);
+    }
+
+
+    .content_active {
+        transform: translate(-60%);
+        background-color: rgba($color: grey, $alpha: 0.5);
+    }
+
+    .menu_burger_active {
+
+        span {
+            display: none;
+        }
+
+        &::before {
+            transform: rotate(45deg);
+            top: 10px;
+        }
+
+        &::after {
+            transform: rotate(-45deg);
+            bottom: 12px;
+        }
+
+    }
+
 }
 
 

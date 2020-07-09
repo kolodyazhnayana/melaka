@@ -66,6 +66,10 @@ body a {
   display: none;
 }
 
+.menu_mobile {
+  display: none;
+}
+
 .logo {
   font-size: 40px;
   color: #000C2D;
@@ -667,6 +671,25 @@ body a {
   .menu {
     display: none;
   }
+  .menu__list {
+    display: block;
+    padding: 20px 0 0 10px;
+  }
+  .menu_mobile {
+    display: block;
+    width: 60%;
+    background-color: #ffffff;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+    overflow: hidden;
+    right: 0;
+    top: 0;
+    -webkit-transition: 1s;
+    transition: 1s;
+    -webkit-transform: translate(100%);
+            transform: translate(100%);
+  }
   .menu_burger {
     display: block;
     position: absolute;
@@ -829,6 +852,33 @@ body a {
   }
   .footer__form {
     padding-top: 30px;
+  }
+  .content {
+    -webkit-transition: 1s;
+    transition: 1s;
+    position: relative;
+  }
+  .menu_active {
+    -webkit-transform: translate(0%);
+            transform: translate(0%);
+  }
+  .content_active {
+    -webkit-transform: translate(-60%);
+            transform: translate(-60%);
+    background-color: rgba(128, 128, 128, 0.5);
+  }
+  .menu_burger_active span {
+    display: none;
+  }
+  .menu_burger_active::before {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+    top: 10px;
+  }
+  .menu_burger_active::after {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    bottom: 12px;
   }
 }
 
