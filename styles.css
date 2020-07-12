@@ -8,7 +8,8 @@ body a {
 }
 
 .container {
-  width: 1100px;
+  width: 80%;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -46,7 +47,6 @@ body a {
 .menu__link {
   font-size: 14px;
   color: #000C2D;
-  padding-left: 30px;
 }
 
 .menu__link:hover {
@@ -55,6 +55,7 @@ body a {
 
 .menu__item {
   padding-top: 15px;
+  padding-left: 30px;
 }
 
 .menu__button {
@@ -68,6 +69,26 @@ body a {
 
 .menu_mobile {
   display: none;
+}
+
+.menu__mode {
+  padding-top: 15px;
+  padding-left: 30px;
+}
+
+.menu__search {
+  padding-top: 15px;
+  padding-left: 30px;
+}
+
+.mode__image {
+  width: 20px;
+  height: 20px;
+}
+
+.search__image {
+  width: 20px;
+  height: 20px;
 }
 
 .logo {
@@ -657,7 +678,7 @@ body a {
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
   .container {
     width: 90%;
   }
